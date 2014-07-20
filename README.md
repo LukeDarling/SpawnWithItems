@@ -1,0 +1,4 @@
+SpawnWithItems
+==============
+
+A PocketMine plugin
