@@ -41,12 +41,6 @@ class Main extends PluginBase {
       }
     }
   }
-  public function give($p) {
-    foreach($this->itemdata as $i) {
-      $item = new Item($i[0],$i[1],$i[2]);
-      $p->getInventory()->addItem($item);
-    }
-  }
   public function onDisable() {
     $this->getLogger()->info(TextFormat::YELLOW . "Disabling SpawnWithItems...");
   }
