@@ -7,6 +7,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\item\Item;
+use pocketmine\event\entity\PlayerRespawnEvent;
 class Main extends PluginBase {
   public function onLoad() {
     $this->getLogger()->info(TextFormat::YELLOW . "Loading SpawnWithItems v2.0 by LDX...");
@@ -25,8 +26,14 @@ class Main extends PluginBase {
     }
     $this->getLogger()->info(TextFormat::YELLOW . "Enabling SpawnWithItems...");
   }
-  public function playerSpawn($event) {
-    
+  /**
+  * @param PlayerRespawnEvent $event
+  *
+  * @priority HIGHEST
+  * @ignoreCancelled false
+  */
+  public function playerSpawn(PlayerRespawnEvent $event) {
+    $this->give($event->getPlayer());
   }
   public function give($p) {
     foreach($this->itemdata as $i) {
