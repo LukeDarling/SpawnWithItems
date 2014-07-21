@@ -7,8 +7,9 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\item\Item;
-use pocketmine\event\entity\PlayerRespawnEvent;
-class Main extends PluginBase {
+use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerRespawnEvent;
+class Main extends PluginBase implements Listener {
   public function onLoad() {
     $this->getLogger()->info(TextFormat::YELLOW . "Loading SpawnWithItems v2.0 by LDX...");
   }
