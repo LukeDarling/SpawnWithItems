@@ -24,16 +24,22 @@ class Main extends PluginBase {
       $this->itemdata[$num] = array($r[0],$r[1],$r[2]);
       $num++;
     }
+    $this->getServer()->getPluginManager()->registerEvents($this,$this);
     $this->getLogger()->info(TextFormat::YELLOW . "Enabling SpawnWithItems...");
   }
   /**
   * @param PlayerRespawnEvent $event
   *
   * @priority HIGHEST
-  * @ignoreCancelled false
+  * @ignoreCancelled true
   */
   public function playerSpawn(PlayerRespawnEvent $event) {
-    $this->give($event->getPlayer());
+    if($event->getPlayer()->hasPermission("spawnwithitems") || $event->getPlayer()->hasPermission("spawnwithitems.receive")) {
+      foreach($this->itemdata as $i) {
+        $item = new Item($i[0],$i[1],$i[2]);
+        $event->getPlayer()->getInventory()->addItem($item);
+      }
+    }
   }
   public function give($p) {
     foreach($this->itemdata as $i) {
