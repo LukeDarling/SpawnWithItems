@@ -4,6 +4,7 @@ version: 2.0
 api: [1.1.0]
 author: LDX
 load: POSTWORLD
+website: https://github.com/LDX-MCPE/SpawnWithItems
 permissions:
   spawnwithitems:
     description: "Allows access to all SpawnWithItems features."
