@@ -1,14 +1,14 @@
 name: SpawnWithItems
 main: LDX\SpawnWithItems\Main
-version: 2.0
-api: [1.1.0]
+version: 2.1
+api: [1.1.0, 2.0.0]
 author: LDX
 load: POSTWORLD
 website: https://github.com/LDX-MCPE/SpawnWithItems
 permissions:
   spawnwithitems:
     description: "Allows access to all SpawnWithItems features."
-    default: op
+    default: false
     children:
       spawnwithitems.receive:
         description: "Allows access to receiving items when you spawn."
